@@ -76,9 +76,10 @@ class Startcgpa2(QtGui.QDialog):
             netcredits = netcredits + self.startgradeframe[k].creditsum(self.tabindex[k])
             k = k+1    
         
-        
-        self.ui.cgpa.setText(str(float(cgpat)/netcredits))
-        self.ui.netcredits.setText(str(netcredits))
+        cgpat = float(cgpat)/netcredits
+	cg = "%.2f" % (cgpat)
+        self.ui.cgpa.setText(str(cg))
+	self.ui.netcredits.setText(str(netcredits))
         
             
     def showmessage(self, a):

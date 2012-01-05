@@ -96,7 +96,8 @@ class Startcgcalc(QtGui.QMainWindow):
                 break;
 
         if flag==0:
-            os.system("python './graph.py'")
+	    self.ui.cgpa_button.setText("Please wait")
+#            os.system("python './graph.py'")
             self.cgpa = Startcgpa2()
             self.cgpa.show()
     
@@ -124,6 +125,7 @@ class Startcgcalc(QtGui.QMainWindow):
                     cur.execute("update acads set grade = ? where subjectcode = ? and semester = ?", t)
                     con.commit()
                 i = i+1
+	    os.system("python './graph.py'")
         
     def calc_gpa(self):
         
@@ -145,8 +147,8 @@ class Startcgcalc(QtGui.QMainWindow):
             if creditsum!=0:
                 
                 gpa = float(gpat)/creditsum
-                
-                self.ui.gpa.setText(str(gpa))
+                gp = "%.2f" % (gpa) 
+                self.ui.gpa.setText(str(gp))
             
             else:
                 self.showmessage('Credit sum is 0')

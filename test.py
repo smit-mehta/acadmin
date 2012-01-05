@@ -47,7 +47,7 @@ cur.execute("delete from days")
 cur.execute("delete from timeslots")
 cur.execute("delete from grades")
 cur.execute("delete from defsem")
-cur.execute("insert into defsem values(1)")
+cur.execute("insert into defsem values(0)")
 
 con.commit()
 

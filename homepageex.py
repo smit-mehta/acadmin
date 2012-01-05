@@ -47,13 +47,12 @@ class Startmain(QtGui.QMainWindow):
         
         self.dummybutton2 = QtGui.QToolButton()
 
-        self.checkdb()
         self.setdate()
         self.setsem()
         self.setallwidgets()
         self.setsub()
         self.setmaintabwidget()
-
+	self.checkdb()
 
         self.setpics()
         self.settoolbar()
@@ -86,12 +85,14 @@ class Startmain(QtGui.QMainWindow):
         a = cur.fetchone()
         
         if a==None:
+	    self.ui.maintabWidget.setCurrentIndex(1)
             message = QtGui.QMessageBox(self)
             message.setText('Welcome to "acadmin". Start by adding a subject.')
             message.setWindowTitle('Acadmin alert')
             message.setIcon(QtGui.QMessageBox.Information)
             message.exec_()
-
+	    
+	
     def showabout(self):
         self.showabt = Startabout()
         self.showabt.show()
@@ -125,6 +126,7 @@ class Startmain(QtGui.QMainWindow):
         
         if a==None:
             self.showmessage('Add a subject first')
+	    self.ui.editsem.click()
         else:
             self.setdefaultsem = Startdefaultsem()
             self.setdefaultsem.show()
