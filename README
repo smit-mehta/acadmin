@@ -2,7 +2,7 @@
 
 --	It was made as a part of Shaastra Distro 2011.
 
---	Work is going on deb packaging it. Till then, you can directly download the code.
+--	Work is going on deb packaging it. Till then, you can directly download the code. Notice the "zip" option in the top of the page. By clicking it, zip ball of the project will get downloaded. Untar it. For running the tool, open terminal, go to the folder, and do 'python acadmin.py'.
 
 --	Requirements :
 		Python 2.7.1
@@ -10,7 +10,5 @@
 		SQLite 3
 		PySQLite 2
 		PyQwt 5
-
---	For running the program, open terminal, go to the folder, and do 'python acadmin.py'
 
 --	For suggestions of any kind, kindly mail to smit.meh@gmail.com
