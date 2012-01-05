@@ -1,0 +1,1033 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>window</class>
+ <widget class="QMainWindow" name="window">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>557</width>
+    <height>440</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>GPA / CGPA Calculator</string>
+  </property>
+  <widget class="QWidget" name="centralframe">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QFrame" name="frame">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QGroupBox" name="box">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>20</y>
+         <width>510</width>
+         <height>390</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">selection-background-color: rgb(0, 85, 255);</string>
+       </property>
+       <property name="title">
+        <string/>
+       </property>
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>1</x>
+          <y>26</y>
+          <width>81</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Subject</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>86</x>
+          <y>22</y>
+          <width>51</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Cr.</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_3">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>26</y>
+          <width>81</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Grade</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+       <widget class="Line" name="line">
+        <property name="geometry">
+         <rect>
+          <x>71</x>
+          <y>20</y>
+          <width>20</width>
+          <height>350</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="Line" name="line_2">
+        <property name="geometry">
+         <rect>
+          <x>131</x>
+          <y>20</y>
+          <width>20</width>
+          <height>350</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="Line" name="line_3">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>40</y>
+          <width>241</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="Line" name="line_4">
+        <property name="geometry">
+         <rect>
+          <x>-3</x>
+          <y>10</y>
+          <width>241</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="grade1">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>60</y>
+          <width>71</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">selection-background-color: rgb(85, 85, 255);
+selection-color: rgb(255, 255, 255);</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>S = 10</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>A = 9</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>B = 8</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>C = 7</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>D = 6</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>E = 4</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>U = 2</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="Line" name="line_5">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>360</y>
+          <width>241</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+       <widget class="QToolButton" name="gpa_button">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>160</y>
+          <width>101</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Calculate GPA</string>
+        </property>
+       </widget>
+       <widget class="QToolButton" name="cgpa_button">
+        <property name="geometry">
+         <rect>
+          <x>300</x>
+          <y>210</y>
+          <width>151</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Show CGPA analysis</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_6">
+        <property name="geometry">
+         <rect>
+          <x>400</x>
+          <y>160</y>
+          <width>41</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>GPA :</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="grade2">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>90</y>
+          <width>71</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>S = 10</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>A = 9</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>B = 8</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>C = 7</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>D = 6</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>E = 4</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>U = 2</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="grade3">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>120</y>
+          <width>71</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>S = 10</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>A = 9</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>B = 8</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>C = 7</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>D = 6</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>E = 4</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>U = 2</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="grade4">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>150</y>
+          <width>71</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>S = 10</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>A = 9</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>B = 8</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>C = 7</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>D = 6</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>E = 4</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>U = 2</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="grade5">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>180</y>
+          <width>71</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>S = 10</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>A = 9</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>B = 8</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>C = 7</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>D = 6</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>E = 4</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>U = 2</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="grade6">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>210</y>
+          <width>71</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>S = 10</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>A = 9</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>B = 8</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>C = 7</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>D = 6</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>E = 4</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>U = 2</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="grade7">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>240</y>
+          <width>71</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>S = 10</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>A = 9</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>B = 8</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>C = 7</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>D = 6</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>E = 4</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>U = 2</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="grade8">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>270</y>
+          <width>71</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>S = 10</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>A = 9</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>B = 8</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>C = 7</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>D = 6</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>E = 4</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>U = 2</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="gpa">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>160</y>
+          <width>81</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="crthsem">
+        <property name="geometry">
+         <rect>
+          <x>440</x>
+          <y>120</y>
+          <width>67</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QToolButton" name="editgrades">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>350</y>
+          <width>151</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Edit grading system</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="sem">
+        <property name="geometry">
+         <rect>
+          <x>410</x>
+          <y>280</y>
+          <width>41</width>
+          <height>21</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="credit1">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>64</y>
+          <width>40</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="credit3">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>124</y>
+          <width>40</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="credit5">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>184</y>
+          <width>40</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="credit4">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>154</y>
+          <width>40</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="credit7">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>244</y>
+          <width>40</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="credit6">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>214</y>
+          <width>40</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="credit8">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>274</y>
+          <width>40</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="credit2">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>94</y>
+          <width>40</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="sub2">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>95</y>
+          <width>67</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="sub5">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>185</y>
+          <width>67</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="sub8">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>275</y>
+          <width>67</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="sub3">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>125</y>
+          <width>67</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="sub4">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>155</y>
+          <width>67</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="sub1">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>65</y>
+          <width>67</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="sub6">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>215</y>
+          <width>67</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="sub7">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>245</y>
+          <width>67</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="credit10">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>335</y>
+          <width>40</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="grade10">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>331</y>
+          <width>71</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>S = 10</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>A = 9</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>B = 8</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>C = 7</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>D = 6</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>E = 4</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>U = 2</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="sub10">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>336</y>
+          <width>67</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="credit9">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>305</y>
+          <width>40</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="grade9">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>301</y>
+          <width>71</width>
+          <height>27</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>S = 10</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>A = 9</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>B = 8</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>C = 7</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>D = 6</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>E = 4</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>U = 2</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="sub9">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>306</y>
+          <width>67</width>
+          <height>17</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="Line" name="line_6">
+        <property name="geometry">
+         <rect>
+          <x>-9</x>
+          <y>20</y>
+          <width>20</width>
+          <height>350</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="Line" name="line_7">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>20</y>
+          <width>20</width>
+          <height>350</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+       </widget>
+       <widget class="QToolButton" name="save">
+        <property name="geometry">
+         <rect>
+          <x>340</x>
+          <y>70</y>
+          <width>50</width>
+          <height>25</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Save</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QLabel" name="label_17">
+       <property name="geometry">
+        <rect>
+         <x>280</x>
+         <y>140</y>
+         <width>181</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Credits for this semester:</string>
+       </property>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <action name="actionCalculate">
+   <property name="text">
+    <string>Calculate</string>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>grade1</tabstop>
+  <tabstop>grade2</tabstop>
+  <tabstop>grade3</tabstop>
+  <tabstop>grade4</tabstop>
+  <tabstop>grade5</tabstop>
+  <tabstop>grade6</tabstop>
+  <tabstop>grade7</tabstop>
+  <tabstop>grade8</tabstop>
+  <tabstop>gpa_button</tabstop>
+  <tabstop>cgpa_button</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
