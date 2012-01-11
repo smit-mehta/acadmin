@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'addref.ui'
 #
-# Created: Thu Jan  5 14:46:23 2012
+# Created: Wed Jan 11 17:33:04 2012
 #      by: PyQt4 UI code generator 4.7.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -12,7 +12,7 @@ from PyQt4 import QtCore, QtGui
 class Ui_window(object):
     def setupUi(self, window):
         window.setObjectName("window")
-        window.resize(429, 251)
+        window.resize(429, 191)
         window.setStyleSheet("color: rgb(85, 0, 0);")
         self.centralwidget = QtGui.QWidget(window)
         self.centralwidget.setObjectName("centralwidget")
@@ -40,9 +40,6 @@ class Ui_window(object):
         self.referencepath = QtGui.QTextBrowser(self.centralwidget)
         self.referencepath.setGeometry(QtCore.QRect(70, 80, 270, 50))
         self.referencepath.setObjectName("referencepath")
-        self.textBrowser_2 = QtGui.QTextBrowser(self.centralwidget)
-        self.textBrowser_2.setGeometry(QtCore.QRect(28, 182, 370, 55))
-        self.textBrowser_2.setObjectName("textBrowser_2")
         window.setCentralWidget(self.centralwidget)
         self.label_3.setBuddy(self.reference)
 
@@ -62,11 +59,4 @@ class Ui_window(object):
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Ubuntu\'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Please click on the browse button and select a file.</p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
-        self.textBrowser_2.setHtml(QtGui.QApplication.translate("window", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Ubuntu\'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt;\">-- Please make sure that the file name or in the path of the file,</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt;\"> there is no blank space used. For example, &quot;Wrong example.pdf&quot; </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:9pt;\">and &quot;home/documents/imp notes/notes.pdf&quot; are invalid.</span></p></body></html>", None, QtGui.QApplication.UnicodeUTF8))
 

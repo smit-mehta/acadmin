@@ -1,3 +1,4 @@
+import os
 import sys
 from PyQt4 import QtGui, QtCore
 from PyQt4.QtGui import *
@@ -11,7 +12,28 @@ from pysqlite2 import dbapi2 as sqlite
 
 class Startframe(QtGui.QWidget):
     code = ''
-    
+
+    def a(self):
+    	link = self.sender()
+    	
+    	k = 0
+        
+        for i in self.references:
+            if i == link:
+                break
+            
+            k = k+1
+	
+        t = (self.code, k+1)
+        cur.execute("select referencepath from referencess where subjectcode1 = ? and ROWID = ?", t)
+        
+        for row in cur:
+	        path = str(row[0])
+        os.system("xdg-open '"+path+"'")
+
+    	
+    	
+   	
     def __init__(self, a, b, c, parent=None):
 
         QtGui.QWidget.__init__(self, parent)
@@ -53,6 +75,7 @@ class Startframe(QtGui.QWidget):
         QtCore.QObject.connect(self.editsub, QtCore.SIGNAL("clicked()"), self.editsubed)
         QtCore.QObject.connect(self.delete, QtCore.SIGNAL("clicked()"), self.deleted)
         
+        
         self.subjectname = QtGui.QLabel('')
         self.credits = QtGui.QLabel('')
         self.subjectcode = QtGui.QLabel('')
@@ -63,23 +86,24 @@ class Startframe(QtGui.QWidget):
         self.subjectcode2 = QtGui.QLabel("Subject's Code : ")
         self.bunksleft2 = QtGui.QLabel("Bunks Left : ")
 
+
         i=0
         
         t = (self.code, )
         cur.execute("select * from referencess where subjectcode1 = ?", t)
                 
         number = []
-        references = []
+        self.references = []
         
         for row in cur:
             
             number.append(QtGui.QLabel(str(i+1)+'. '))
-            references.append(QtGui.QLabel('<a href =' + row[2] + ' > ' + row[1] + '</a>'))
-            references[i].setOpenExternalLinks(True)
+            self.references.append(QtGui.QLabel('<a href =' + row[2] + ' > ' + row[1] + '</a>'))
+#            references[i].setOpenExternalLinks(True)
+            QtCore.QObject.connect(self.references[i], QtCore.SIGNAL("linkActivated(const QString&)"), self.a)
             sublistgrid.addWidget(number[i], i, 0)
-            sublistgrid.addWidget(references[i], i, 1)
+            sublistgrid.addWidget(self.references[i], i, 1)
             i = i+1
-            
         
         sublistscrollarea.setWidget(sublist)
 
@@ -124,6 +148,7 @@ class Startframe(QtGui.QWidget):
         self.addref.show()
         self.addref.ui.subjectcode.setText(self.subjectcode.text())
 
+
     def editsubed(self):
 
         self.editsubject.show()
@@ -138,7 +163,11 @@ class Startframe(QtGui.QWidget):
     
         self.deleteref.show()
         self.deleteref.ui.subjectcode.setText(self.subjectcode.text())
-        
+	
+	def gen(a, self):
+			print a
+
+
 if __name__ == "__main__":
   app = QtGui.QApplication(sys.argv)
   panel = Startframe()

@@ -52,8 +52,8 @@ class Startmain(QtGui.QMainWindow):
         self.setallwidgets()
         self.setsub()
         self.setmaintabwidget()
-	self.checkdb()
-
+        self.checkdb()
+        
         self.setpics()
         self.settoolbar()
 
@@ -304,11 +304,23 @@ class Startmain(QtGui.QMainWindow):
         self.ui.home.click()
 
     def setsub2(self):
+        
+        flag = 0
+        
+        cur.execute("select * from acads")
+        
+        for row in cur:
+        	flag = flag+1
+        
         self.setsem()
         self.setsub()
         self.calendar.setbunkclasses()
         self.calendar.setbunkticks()
         self.ui.home.click()
+        
+        if flag==1:
+        	self.ui.defsem.click()
+        
     
     def setsem(self):
         cur.execute("select * from defsem")
