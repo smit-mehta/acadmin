@@ -1,3 +1,5 @@
+# Setting the grades of all the semesters in 'cgpa' secondary tab.
+
 import sys
 from PyQt4 import QtGui, QtCore
 from global_sql import *
@@ -51,6 +53,8 @@ class Startgradeframe(QtGui.QWidget):
         mainvbox.addWidget(sublistscrollarea)
         self.setLayout(mainvbox)
         
+    # Calculating the gpa.
+    
     def calc_gpa(self, a):
         t = (a, )
         cur.execute("select * from acads where semester = ? and grade<>'null'", t)
@@ -64,6 +68,8 @@ class Startgradeframe(QtGui.QWidget):
         
         return float(gpat)/creditsum
         
+    # Calculating the number of credits.
+    
     def creditsum(self, a):
         t = (a, )
         cur.execute("select * from acads where semester = ? and grade<>'null'", t)

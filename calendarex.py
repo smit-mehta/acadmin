@@ -1,16 +1,20 @@
+# For implementing the 'calendar' along with its ui.
+
 import sys, random
 from PyQt4 import QtCore, QtGui
 from reminderex import Startaddreminder
 from global_sql import *
-
-
 
 class Startcalendar(QtGui.QWidget):
   
     def __init__(self, a, parent=None):
         QtGui.QWidget.__init__(self, parent)
         
+		# Setting the current semester		
+		
         self.sem = a
+        
+        # UI
         
         self.setGeometry(300, 400, 350, 280)
         self.setWindowTitle('Calendar')
@@ -56,6 +60,9 @@ class Startcalendar(QtGui.QWidget):
         self.savebunk.setStyleSheet('background-color: rgb(0, 147, 203); color: rgb(255, 255, 255);')
         self.addtask.setStyleSheet('background-color: rgb(0, 147, 203); color: rgb(255, 255, 255);')
 
+		
+		# Signals and slots		
+		
         QtCore.QObject.connect(self.a, QtCore.SIGNAL("clicked(const QDate&)"), self.settasks)
         QtCore.QObject.connect(self.addtask, QtCore.SIGNAL("clicked()"), self.addtaskopen)        
         QtCore.QObject.connect(self.savebunk, QtCore.SIGNAL("clicked()"), self.savebunks)        
@@ -64,6 +71,7 @@ class Startcalendar(QtGui.QWidget):
         self.setLayout(vbox)
 
 
+	# Setting the ticks on bunks for the subject which is already there in the database.
         
     def setbunkticks(self):
         
@@ -85,6 +93,8 @@ class Startcalendar(QtGui.QWidget):
                 if i.text()==row[0]:
                     i.setChecked(True)                        
 
+
+	# Saving the bunks into the database.
         
     def savebunks(self):
         date = self.a.selectedDate()
@@ -108,6 +118,9 @@ class Startcalendar(QtGui.QWidget):
 
         self.setbunkintoacads()
     
+    
+    # Updating the number of bunks into the main database table to calculate the number of bunks left.
+    
     def setbunkintoacads(self):
         cur.execute("select distinct subjectcode from bunk")
         a = cur.fetchall()
@@ -120,9 +133,13 @@ class Startcalendar(QtGui.QWidget):
             cur.execute("update acads set bunksdone=? where subjectcode = ? and semester = ?", h)
             con.commit()
 
+	# Calling the class for adding reminder.
+
     def initial(self):
             self.t = Startaddreminder(self.a.selectedDate(), self.sem)
 
+	# Adding the tasks.
+	
     def addtaskopen(self):
             
             self.t.date = self.a.selectedDate()
@@ -130,6 +147,8 @@ class Startcalendar(QtGui.QWidget):
             self.t.ui.tasksaved.setText('')
             self.t.show()        
             QtCore.QObject.connect(self.t.ui.add, QtCore.SIGNAL("clicked()"), self.settasks)
+    
+    # Setting the classes.
     
     def setbunkclasses(self):
         if self.sem!=None:        
@@ -153,7 +172,7 @@ class Startcalendar(QtGui.QWidget):
             self.bunkscroll.setWidget(self.bunklist)
             
 
-    
+    # Setting the tasks.
     
     def settasks(self):
         if self.sem!=None:
@@ -195,6 +214,8 @@ class Startcalendar(QtGui.QWidget):
             self.tasklistgrid.addWidget(QtGui.QLabel("No Tasks Added."), 0 , 0)
             
         self.scroll.setWidget(self.tasklist)
+        
+    # Provision for deleting the task
         
     def deletetaskl(self):
         delbutton = self.sender()

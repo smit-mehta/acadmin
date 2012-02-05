@@ -1,3 +1,5 @@
+# For adding the references for respective subjects.
+
 import sys
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
@@ -25,11 +27,14 @@ class Startaddref(QtGui.QMainWindow):
         self.ui.browse.setStyleSheet('background-color: rgb(0, 147, 203); color: rgb(255, 255, 255);')
         self.ui.add.setStyleSheet('background-color: rgb(0, 147, 203); color: rgb(255, 255, 255);')
     
+    # Browsing the file.
+    
     def browsed(self):
         fd = QtGui.QFileDialog(self)
         self.path = fd.getOpenFileName()
         self.ui.referencepath.setText(self.path)
         
+    # Adding the file path into the database.
     
     def added(self):
         if (self.ui.reference.text()=='') or (self.ui.referencepath.toPlainText()==''):
@@ -41,6 +46,8 @@ class Startaddref(QtGui.QMainWindow):
             cur.execute("insert into referencess values (?, ?, ?)", s)
             con.commit()
             self.close()
+   
+   # Error message if the file already exists or the filename or path is blank.
    
     def showmessage(self):
         message = QtGui.QMessageBox(self)

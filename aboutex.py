@@ -1,3 +1,5 @@
+# For implemention of 'about' tab.
+
 import sys
 from PyQt4 import QtCore, QtGui
 from about import Ui_Dialog
@@ -30,8 +32,6 @@ class Startabout(QtGui.QDialog):
 
         b = QtGui.QPixmap("./pics/shaastra.png")
         self.ui.shaastra.setPixmap(QtGui.QPixmap(b))
-
-
 
         QtCore.QObject.connect(self.ui.close, QtCore.SIGNAL("clicked()"), self.close)
         

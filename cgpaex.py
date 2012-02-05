@@ -1,3 +1,5 @@
+# For implementing the 'cgpa' tab.
+
 import os
 import sys
 from PyQt4 import QtCore, QtGui
@@ -15,6 +17,8 @@ class Startcgcalc(QtGui.QMainWindow):
     credit = ()
     grade = ()
     numeqdict = {}
+    
+    # Setting the semester.
     
     def setsem(self):
         cur.execute("select distinct semester from acads")
@@ -71,7 +75,9 @@ class Startcgcalc(QtGui.QMainWindow):
         self.ui.editgrades.setStyleSheet('background-color: rgb(0, 147, 203); color: rgb(255, 255, 255);')        
         self.ui.save.setStyleSheet('background-color: rgb(0, 147, 203); color: rgb(255, 255, 255);')        
                 
-
+	
+	# Calculating the sum of credits.
+	
     def creditsum(self, a):
         t = (a, )
         cur.execute("select * from acads where semester = ? and grade<>'null'", t)
@@ -83,6 +89,7 @@ class Startcgcalc(QtGui.QMainWindow):
         
         return creditsum
 
+    # Checking conditions prior to opening the cgpa frame.
     
     def calc_cgpa(self):
 
@@ -103,6 +110,8 @@ class Startcgcalc(QtGui.QMainWindow):
     
         else :
             self.showmessage("One of the semester's credit sum is 0 ")
+
+	# Storing the grades into database.
 
     def saved(self):
         if self.ui.sem.currentText()!='':
@@ -127,6 +136,8 @@ class Startcgcalc(QtGui.QMainWindow):
                 i = i+1
 	    os.system("python './graph.py'")
         
+    # Calculating the gpa.
+    
     def calc_gpa(self):
         
             gpat = 0
@@ -153,6 +164,7 @@ class Startcgcalc(QtGui.QMainWindow):
             else:
                 self.showmessage('Credit sum is 0')
 
+	# Error message
                         
     def showmessage(self, a):
         message = QtGui.QMessageBox(self)
@@ -161,7 +173,7 @@ class Startcgcalc(QtGui.QMainWindow):
         message.setIcon(QtGui.QMessageBox.Critical)
         message.exec_()
 
-
+	# Making the UI of grades only visible if subject is there.
 
     def gradeinvisible(self):
         i = 0
@@ -169,6 +181,8 @@ class Startcgcalc(QtGui.QMainWindow):
         while(i<10):
             self.grade[i].setVisible(False)
             i= i+1
+    
+    # Filling in the subjects of the selected semester
     
     def setsub(self):
             
@@ -199,6 +213,7 @@ class Startcgcalc(QtGui.QMainWindow):
 
                 i = i+1;
     
+    # Clearing the frame for other semester
     
     def clear(self):
         i=0
@@ -208,6 +223,8 @@ class Startcgcalc(QtGui.QMainWindow):
             self.grade[i].clear()
             i = i+1
         
+    
+    # Setting the grades for respective subjects.
     
     def setgrade1(self):
         cur.execute("select grade from grades")
@@ -224,14 +241,19 @@ class Startcgcalc(QtGui.QMainWindow):
             self.grade[i].addItems(b)
             i = i+1
         
+    # Getting the numeric equivalent of the grades.
+    
     def setnumeqdict(self):
         cur.execute("select * from grades")
         for row in cur:
             self.numeqdict[row[0]] = row[1]
             
+    # For opening the frame to change the grades and their decimal equivalents.
+    
     def editgradesed(self):
         self.editgrades.show()
     
+    # Setting the grades.
     
     def setgrade2(self):
         if self.ui.sem.currentText()!='':

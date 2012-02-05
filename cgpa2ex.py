@@ -1,3 +1,5 @@
+# For implementing the secondary cgpa frame.
+
 import sys
 from PyQt4 import QtCore, QtGui
 from PyQt4.QtCore import *
@@ -56,6 +58,8 @@ class Startcgpa2(QtGui.QDialog):
         self.setall()
         self.setcgpa()
         
+    # Setting the semesters and gpa into the tab widget.
+    
     def setall(self):
         i = self.ui.tabWidget.currentIndex()
         a = self.tabindex[i]
@@ -64,6 +68,8 @@ class Startcgpa2(QtGui.QDialog):
         self.ui.semcredits.setText(str(self.startgradeframe[i].creditsum(a)))
         self.ui.gpa.setText(str(self.startgradeframe[i].calc_gpa(a)))
                 
+    # Calculating and setting the cgpa.
+    
     def setcgpa(self):
         
         cgpat = 0
@@ -81,14 +87,7 @@ class Startcgpa2(QtGui.QDialog):
         self.ui.cgpa.setText(str(cg))
 	self.ui.netcredits.setText(str(netcredits))
         
-            
-    def showmessage(self, a):
-        message = QtGui.QMessageBox(self)
-        message.setText(a)
-        message.setWindowTitle('acadmin Error')
-        message.setIcon(QtGui.QMessageBox.Critical)
-        message.exec_()
-
+    
 if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
     myapp = Startcgpa2()

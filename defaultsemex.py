@@ -1,3 +1,5 @@
+# For setting the 'default sem' tab.
+
 import sys
 from PyQt4 import QtCore, QtGui
 from defaultsem import Ui_Dialog
@@ -29,13 +31,16 @@ class Startdefaultsem(QtGui.QDialog):
         self.setsem()
         QtCore.QObject.connect(self.ui.okay, QtCore.SIGNAL("clicked()"), self.okayed)
 
+	# Setting the selected sem as default sem.	
+	
     def okayed(self):
         cur.execute("delete from defsem")
         cur.execute("insert into defsem values(?)", (int(self.ui.sem.currentText()), ))
         con.commit()
         self.close()
         
-        
+    # Setting the already saved semester into the options.
+    
     def setsem(self):
         cur.execute("select distinct semester from acads")
         a = cur.fetchall()
