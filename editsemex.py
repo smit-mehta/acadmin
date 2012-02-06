@@ -1,3 +1,5 @@
+# For implementing "edit semester" tab. That is, to add or delete subjects.
+
 import sys
 from PyQt4 import QtCore, QtGui
 from editsem import Ui_window
@@ -40,6 +42,8 @@ class Starteditsem(QtGui.QMainWindow):
         self.ui.toolButton_2.setStyleSheet('background-color: rgb(0, 147, 203); color: rgb(255, 255, 255);')
         self.ui.toolButton_3.setStyleSheet('background-color: rgb(0, 147, 203); color: rgb(255, 255, 255);')
         
+    # Filling the delete option from the subjects already in the database for the concerned semester
+    
     def delete_setsub(self):
         
         self.ui.subdelete.clear()
@@ -53,7 +57,8 @@ class Starteditsem(QtGui.QMainWindow):
             
         self.ui.subdelete.addItems(b)
         
-
+	# Adding the subject.
+	
     def added(self):
         if self.subject_already_exists()==1:
             self.showmessage()            
@@ -69,7 +74,7 @@ class Starteditsem(QtGui.QMainWindow):
         self.ui.subjectcode.clear()
         self.ui.subjectname.clear()
         
-        
+    # Checking if the subject already exists in the database.
         
     def subject_already_exists(self):
         a = (self.ui.semadd.value(),)
@@ -81,6 +86,8 @@ class Starteditsem(QtGui.QMainWindow):
                 return 1
         return 0
         
+    # Deleting the selected subject.
+    
     def deleted(self):
         a = (int(self.ui.semdelete.currentText()), str(self.ui.subdelete.currentText()), )
         b = (str(self.ui.subdelete.currentText()),)
@@ -97,6 +104,7 @@ class Starteditsem(QtGui.QMainWindow):
         a = 1
         cur.execute("select * from acads")
         
+    # Setting the semesters for the delete scroll down semester option.
        
     def delete_setsem(self):
         
@@ -110,6 +118,8 @@ class Starteditsem(QtGui.QMainWindow):
             
         self.ui.semdelete.clear()
         self.ui.semdelete.addItems(b)
+        
+    # Error message
         
     def showmessage(self):
         message = QtGui.QMessageBox(self)

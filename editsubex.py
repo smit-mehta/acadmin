@@ -1,3 +1,5 @@
+# For implementing the "edit subject" tab.
+
 import sys
 from PyQt4 import QtCore, QtGui
 from PyQt4.QtGui import *
@@ -31,12 +33,13 @@ class Starteditsub(QtGui.QDialog):
 
         QtCore.QObject.connect(self.ui.change, QtCore.SIGNAL("clicked()"), self.changed)
 
+	# Saving the changes made.
+
     def changed(self):
 
         bunksallowed = int(self.ui.classes.value()+1)-int((self.ui.classes.value()*self.ui.attendance.value()/100))
 
         s = (str(self.ui.subjectcode.text()), str(self.ui.subjectname.text()), self.ui.credits.value(), self.ui.attendance.value(), self.ui.classes.value(), bunksallowed, self.a, )
-
 
 
         cur.execute("update acads set subjectcode = ?, subjecttitle = ?, credits = ?, attendance = ?, totalclasses = ?, bunksallowed = ? where subjectcode = ?", s)

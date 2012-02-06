@@ -1,3 +1,5 @@
+# For implementing the 'delete' reference option.
+
 import sys
 from PyQt4 import QtCore, QtGui
 from PyQt4.QtGui import *
@@ -33,11 +35,15 @@ class Startdeleteref(QtGui.QDialog):
         self.ui.references.setStyleSheet('selection-background-color: rgb(85, 85, 255); selection-color: rgb(255, 255, 255)')            
 
 
+	# Setting the path in the gui.
+
     def setpath(self):
         t = (self.code, str(self.ui.references.currentText()), )
         cur.execute("select * from referencess where subjectcode1 = ? and reference = ?", t)
         for row in cur:
             self.ui.referencepath.setText(row[2])
+	
+	# Deleting the reference from the database.
 
     def deleted(self):
         t = (self.code, str(self.ui.references.currentText()), )
@@ -46,6 +52,8 @@ class Startdeleteref(QtGui.QDialog):
         con.commit()
         self.close()
 
+	# Setting up the existing references in the gui scroll down option	
+	
     def setref(self):
         t = (self.code, )
         
