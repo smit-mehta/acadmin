@@ -1,12 +1,12 @@
+# Plotting the graph of gpa versus semesters using numpy.
+
 import numpy as np
 from PyQt4.Qt import *
 from PyQt4.Qwt5 import *
 from PyQt4.Qwt5.qplt import *
 from pysqlite2 import dbapi2 as sqlite
 from cgpa2ex import Startcgpa2
-
-con = sqlite.connect('text.db')
-cur = con.cursor()
+from global_sql import *
 
 application = QApplication([])
 
@@ -20,6 +20,8 @@ for row in cur:
 cur.execute("select max(semester) from acads")
 a = cur.fetchone()
 x = np.arange(1, a[0]+1, 1)
+
+# Calculating the gpa.
 
 def calc_gpa(x):
     y = []
@@ -42,6 +44,8 @@ def calc_gpa(x):
 
     return y
 
+# Calculating the cgpa
+
 def calc_cgpa(x):
     
     a = Startcgpa2()
@@ -53,6 +57,7 @@ def calc_cgpa(x):
     
     return y
 
+# Plotting the graph and saving it in graph.png
 
 p = Plot(
     Curve(x, calc_gpa(x), Pen(Blue, 5), Symbol(Square, Red, 10), "GPA"), 

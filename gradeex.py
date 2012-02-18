@@ -1,3 +1,5 @@
+# Setting the grades and their numeric equivalence.
+
 import sys
 from PyQt4 import QtCore, QtGui
 from grade import Ui_Dialog
@@ -33,6 +35,8 @@ class Startgrade(QtGui.QDialog):
         
         QtCore.QObject.connect(self.ui.done, QtCore.SIGNAL("clicked()"), self.doned)
         
+    # Saving the new grade format.
+
     def doned(self):
         
         cur.execute("update acads set grade = ?", (None, ))
@@ -55,6 +59,8 @@ class Startgrade(QtGui.QDialog):
         cur.execute("select * from grades")
         a = cur.fetchone()
         
+    # Showing the grade scheme already in the database.
+
     def setall(self):
         
         i=0

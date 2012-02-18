@@ -1,4 +1,4 @@
-# The global database interface between the programs and "text.db"
+# The global database interface between the programs and "database.db"
 
 from pysqlite2 import dbapi2 as sqlite
 

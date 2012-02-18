@@ -1,3 +1,5 @@
+# Implementing the help tab.
+
 import sys
 from PyQt4 import QtCore, QtGui
 from help import Ui_Dialog
