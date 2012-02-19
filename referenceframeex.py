@@ -1,3 +1,5 @@
+# Reference frame for showing the references of individual subjects in home tab.
+
 import os
 import sys
 from PyQt4 import QtGui, QtCore
@@ -13,7 +15,9 @@ from pysqlite2 import dbapi2 as sqlite
 class Startframe(QtGui.QWidget):
     code = ''
 
-    def a(self):
+# Function for opening the reference using xdg-open.
+
+    def openref(self):
     	link = self.sender()
     	
     	k = 0
@@ -49,6 +53,8 @@ class Startframe(QtGui.QWidget):
         self.attendance = b
         
         
+	# Setting the gui.
+
         sublistscrollarea = QtGui.QScrollArea()
         
         
@@ -95,17 +101,20 @@ class Startframe(QtGui.QWidget):
         number = []
         self.references = []
         
+	# Fetching references from database and showing them.
+
         for row in cur:
             
             number.append(QtGui.QLabel(str(i+1)+'. '))
             self.references.append(QtGui.QLabel('<a href =' + row[2] + ' > ' + row[1] + '</a>'))
-#            references[i].setOpenExternalLinks(True)
-            QtCore.QObject.connect(self.references[i], QtCore.SIGNAL("linkActivated(const QString&)"), self.a)
+            QtCore.QObject.connect(self.references[i], QtCore.SIGNAL("linkActivated(const QString&)"), self.openref)
             sublistgrid.addWidget(number[i], i, 0)
             sublistgrid.addWidget(self.references[i], i, 1)
             i = i+1
         
         sublistscrollarea.setWidget(sublist)
+
+	# GUI components.
 
         mainvbox = QtGui.QVBoxLayout()
         mainh1box = QtGui.QHBoxLayout()
@@ -142,12 +151,15 @@ class Startframe(QtGui.QWidget):
 
         self.setLayout(mainvbox)
         
-        
+
+    # Implementing add reference button.        
+
     def addrefbuttoned(self):
 
         self.addref.show()
         self.addref.ui.subjectcode.setText(self.subjectcode.text())
 
+    # Implementing edit subject button.
 
     def editsubed(self):
 
@@ -159,15 +171,13 @@ class Startframe(QtGui.QWidget):
         self.editsubject.ui.classes.setValue(self.classes)
         self.editsubject.ui.attendance.setValue(self.attendance)
 
+    # Implementing delete reference button.
+
     def deleted(self):
     
         self.deleteref.show()
         self.deleteref.ui.subjectcode.setText(self.subjectcode.text())
 	
-	def gen(a, self):
-			print a
-
-
 if __name__ == "__main__":
   app = QtGui.QApplication(sys.argv)
   panel = Startframe()

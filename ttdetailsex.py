@@ -1,3 +1,5 @@
+# Implementing timetable details along with its GUI.
+
 import sys
 from PyQt4 import QtGui, QtCore
 from PyQt4.QtCore import *

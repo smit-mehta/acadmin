@@ -1,3 +1,5 @@
+# Implementing reminder / task saver in calendar tab.
+
 import sys
 from PyQt4.QtGui import *
 from PyQt4.QtCore import *
@@ -36,6 +38,8 @@ class Startaddreminder(QtGui.QMainWindow):
         
         QtCore.QObject.connect(self.ui.add, QtCore.SIGNAL("clicked()"), self.tasksave)
         
+    # Saving the task into the database.
+
     def tasksave(self):
 
         day = self.date.day()
@@ -49,6 +53,8 @@ class Startaddreminder(QtGui.QMainWindow):
         
         self.ui.tasksaved.setText("Task added")
         self.ui.desc.clear()
+
+    # Setting the subjects of the current semester.
 
     def setsub(self):
         

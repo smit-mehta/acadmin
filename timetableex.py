@@ -1,3 +1,5 @@
+# Implementing the timetable tab.
+
 import sys
 from PyQt4 import QtCore, QtGui
 from timetable import Ui_window
@@ -32,12 +34,15 @@ class Starttimetable(QtGui.QMainWindow):
 
         self.ui.edit.setStyleSheet('background-color: rgb(0, 147, 203); color: rgb(255, 255, 255);')        
         
+    # For edit button.
+
     def setedited(self):
         
         self.setedit.show()
         QtCore.QObject.connect(self.setedit.save, QtCore.SIGNAL("clicked()"), self.settimetable)
     
-        
+    # For setting the timetable already in the database.    
+
     def settimetable(self):
         
         i=0
@@ -64,7 +69,7 @@ class Starttimetable(QtGui.QMainWindow):
             self.ui.tt.setItem(i, k, item)    
             self.ui.tt.item(i, k).setText(row[2])
         
-        
+    # Setting the columns and rows.
     
     def setcolrow(self):
         self.dayslabel = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', ]
@@ -100,6 +105,7 @@ class Starttimetable(QtGui.QMainWindow):
             self.ui.tt.horizontalHeaderItem(k).setText(str(row[0]))        
             k = k+1
         
+    # Setting the semester.
 
     def setsem(self):
         
