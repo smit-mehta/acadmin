@@ -1,4 +1,5 @@
 # For implemention of 'about' tab.
+# Displays information about the app.
 
 import sys
 from PyQt4 import QtCore, QtGui
